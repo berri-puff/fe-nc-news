@@ -31,5 +31,5 @@ h2 {
 
 .articles-card {
     border: double 5px darkslateblue;
-
+    padding-left: 0px;
 }
