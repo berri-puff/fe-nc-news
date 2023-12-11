@@ -1,9 +1,12 @@
 
-const ArticleCards = () =>{
+const ArticleCards = ({article}) =>{
     return (
-        <>
-        <p>each articles will be contained here</p>
-        </>
+        <section className="article">
+        <h3>{article.title}</h3>
+        <img className='articleImg'src={article.article_img_url}/>
+        <p>By : {article.author}</p>
+        <p>Comments : {article.comment_counts}</p>
+        </section>
     )
 }
 export default ArticleCards
