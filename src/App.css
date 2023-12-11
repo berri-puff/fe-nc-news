@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubbler+One&family=Caveat:wght@700&family=Gluten:wght@300;500;700&display=swap');
+
+
+.nav-buttons {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+*{
+    text-align: center;
+    font-family: 'Bubbler One', sans-serif;
+    font-family: 'Caveat', cursive;
+    font-family: 'Gluten', cursive;
+}
+
+.articleImg {
+    width: 250px;
+    height: 250px;
+}
+
+h3 {
+    text-decoration: underline dashed 5px lightblue;
+}
+h1 {
+    font-size: 90px;
+    margin-bottom: 30px;
+}
+h2 {
+    font-size: 30px;
+}
+
+.articles-cards {
+    border: double 5px darkslateblue;
+    padding-left: 0px;
+}
