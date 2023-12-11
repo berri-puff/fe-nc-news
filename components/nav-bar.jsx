@@ -6,7 +6,7 @@ const Navigation = () =>{
              <Link to='/' className="nav-buttons">Home</Link>
         <Link to='/topics' className="nav-buttons">Topics</Link>
         <Link to='/articles'className="nav-buttons">Articles</Link>
-        {/* <Link to='/users'className="nav-buttons">Users</Link> */}
+        <Link to='/users'className="nav-buttons">Users</Link>
         </nav>
        
     )

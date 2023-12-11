@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { getsAllArticles } from "../../utils/api"
 import ArticleCards from "./article-card"
+import { LoadingContext } from "../../context/loading"
 
 
 const Articles = () =>{
+    const {isLoading, setIsLoading} = useContext(LoadingContext)
     const [articles, setArticles] = useState([])
     useEffect(()=>{
         setIsLoading(true)
@@ -12,7 +14,7 @@ const Articles = () =>{
             setIsLoading(false)
         })
     }, [])
-    const [isLoading, setIsLoading] = useState(true)
+
 
     if (isLoading) {
         return <h2>Fetching the news for you</h2>
@@ -21,7 +23,7 @@ const Articles = () =>{
          return (
         <>
         <h2>What's New</h2>
-       <ul className="articles-cards">
+       <ul className="articles-container">
         {articles.map((article) =>{
             return <ArticleCards key={article.article_id} article={article}/>
         })}
