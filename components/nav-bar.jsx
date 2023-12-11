@@ -1,11 +1,12 @@
+import { Link } from "react-router-dom"
 
 const Navigation = () =>{
     return (
         <nav className="nav-bar">
-             <a className="nav-buttons">Home</a>
-        <a className="nav-buttons">Topics</a>
-        <a className="nav-buttons">Articles</a>
-        <a className="nav-buttons">Users</a>
+             <Link to='/' className="nav-buttons">Home</Link>
+        <Link to='/topics' className="nav-buttons">Topics</Link>
+        <Link to='/articles'className="nav-buttons">Articles</Link>
+        {/* <Link to='/users'className="nav-buttons">Users</Link> */}
         </nav>
        
     )
