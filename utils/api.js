@@ -11,3 +11,11 @@ export const getsAllArticles = () =>{
         console.log(err)
     })
 }
+
+export const getAnArticleById = (id) =>{
+ return app.get(`/articles/${id}`).then(({data})=>{
+    return data
+ }).catch((err) =>{
+    console.log(err)
+ })
+}

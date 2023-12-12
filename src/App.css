@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Bubbler+One&family=Caveat:wght@700&family=Gluten:wght@300;500;700&display=swap');
 
+
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap');
 
 .nav-buttons {
     padding-left: 10px;
@@ -8,18 +9,17 @@
 
 *{
     text-align: center;
-    font-family: 'Bubbler One', sans-serif;
-    font-family: 'Caveat', cursive;
-    font-family: 'Gluten', cursive;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
 }
 
 .articleImg {
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
 }
 
 h3 {
-    text-decoration: underline dashed 5px lightblue;
+    text-decoration: underline solid 5px darkslateblue;
 }
 h1 {
     font-size: 90px;
@@ -29,7 +29,14 @@ h2 {
     font-size: 30px;
 }
 
-.articles-cards {
+.articles-container {
     border: double 5px darkslateblue;
     padding-left: 0px;
+}
+
+.article-card {
+    border: solid 3px palevioletred;
+    border-radius: 7px;
+    margin: 5px;
+    padding: 5px
 }
