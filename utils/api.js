@@ -24,6 +24,17 @@ export const getCommentsByArticleId = (id)=>{
     return app.get(`articles/${id}/comments`).then(({data})=>{
         return data.comments
     }).catch((err)=>{
-        console.log(err)
+        return err
     })
 }
+
+export const patchArticleVote = (id, likeAmount)=>{
+    const likeButton = {inc_votes: likeAmount}
+    return app.patch(`/articles/${id}`, likeButton).then(({data}) =>{
+        return data.article
+    }).catch((err)=>{
+        next(err)
+    })
+}
+
+

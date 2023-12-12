@@ -23,11 +23,14 @@ const Comments = () => {
   }
   else {
       return (
+        <>
+           
     <ol className="comments">
       {comments.map((comment) => {
         return <SingleComment key={comment.comment_id} comment={comment} />;
       })}
     </ol>
+       </>
   );
   }
 
