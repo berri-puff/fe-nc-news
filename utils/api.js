@@ -20,6 +20,14 @@ export const getAnArticleById = (id) =>{
  })
 }
 
+export const getCommentsByArticleId = (id)=>{
+    return app.get(`articles/${id}/comments`).then(({data})=>{
+        return data.comments
+    }).catch((err)=>{
+        console.log(err)
+    })
+}
+
 export const postsNewComment = (id, newComment)=>{
     const commentToAdd = {
         username: 'happyamy2016',

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getAnArticleById } from "../../utils/api";
 import { convertToDates } from "../../utils/convertDate";
 import { LoadingContext } from "../../context/loading";
+import Comments from "../comments/comment-container";
 import NewComment from "../comment-adder";
 
 const SingleArticle = () => {
@@ -20,24 +21,34 @@ const SingleArticle = () => {
   const date = convertToDates(singleArticle.created_at);
 
   if (isLoading) {
-    return <h2>Fetching the news for you</h2>;
+    return <h2>Fetching...</h2>;
   } else {
     return (
-      <>
-        <section className="article-card">
+      <body className="single-article">
+        <>
           <p>Article No.{singleArticle.article_id}</p>
           <h2>{singleArticle.title}</h2>
           <p>Topic: {singleArticle.topic}</p>
           <img className="articleImg" src={singleArticle.article_img_url} />
           <p>Written by: {singleArticle.author}</p>
           <p>
-            Published on {date[0]}-{date[1]}-{date[2]}, {date[3]}:{date[4]}
+            Published on {date[0]}-{date[1]}-{date[2]},{" "}
+            {date[3] >= 0 && date[3] < 12 ? (
+              <>
+                {date[3]}:{date[4]}AM
+              </>
+            ) : (
+              <>
+                {date[3]}:{date[4]}PM
+              </>
+            )}
           </p>
-          <p>{singleArticle.body}</p>
+          <section>{singleArticle.body}</section>
           <p>{singleArticle.comment_counts} comments</p>
-        </section>
-      <NewComment/>
-      </>
+        </> 
+        <NewComment/>
+        <Comments />    
+      </body>
     );
   }
 };
