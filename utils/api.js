@@ -19,3 +19,17 @@ export const getAnArticleById = (id) =>{
     console.log(err)
  })
 }
+
+export const increaseArticleVote = (id)=>{
+    const likeButton = {inc_votes: 1}
+    return app.patch(`/articles/${id}`, likeButton).then(({data}) =>{
+        return data.article
+    })
+}
+
+export const decreaseArticleVote =(id) =>{
+const dislikeButton = {inc_votes:-1}
+return app.patch(`/articles/${id}`, dislikeButton).then(({data}) =>{
+    return data.article
+})
+}
