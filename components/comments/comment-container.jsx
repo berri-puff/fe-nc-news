@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCommentsByArticleId } from "../../utils/api";
-
+import NewComment from "./comment-adder";
 import SingleComment from "./comment-card";
 
 
@@ -23,11 +23,14 @@ const Comments = () => {
   }
   else {
       return (
+        <>
+      <NewComment setComments={setComments}/>
     <ol className="comments">
       {comments.map((comment) => {
         return <SingleComment key={comment.comment_id} comment={comment} />;
       })}
     </ol>
+      </>
   );
   }
 

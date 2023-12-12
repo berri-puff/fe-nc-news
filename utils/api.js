@@ -34,6 +34,6 @@ export const postsNewComment = (id, newComment)=>{
         body: newComment
     }
     return app.post(`/articles/${id}/comments`, commentToAdd).then(({data})=>{
-        return data.articles
+        return data.comment
     })
 }

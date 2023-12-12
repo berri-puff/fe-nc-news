@@ -4,7 +4,7 @@ import { getAnArticleById } from "../../utils/api";
 import { convertToDates } from "../../utils/convertDate";
 import { LoadingContext } from "../../context/loading";
 import Comments from "../comments/comment-container";
-import NewComment from "../comment-adder";
+
 
 const SingleArticle = () => {
   const { article_id } = useParams();
@@ -25,7 +25,7 @@ const SingleArticle = () => {
   } else {
     return (
       <body className="single-article">
-        <>
+        <section>
           <p>Article No.{singleArticle.article_id}</p>
           <h2>{singleArticle.title}</h2>
           <p>Topic: {singleArticle.topic}</p>
@@ -43,11 +43,13 @@ const SingleArticle = () => {
               </>
             )}
           </p>
-          <section>{singleArticle.body}</section>
+          <article>{singleArticle.body}</article>
           <p>{singleArticle.comment_counts} comments</p>
-        </> 
-        <NewComment/>
-        <Comments />    
+        </section> 
+    <section>
+                <Comments />  
+        </section>
+        
       </body>
     );
   }

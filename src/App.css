@@ -50,3 +50,7 @@ h2 {
 .comments {
     padding-left: 0px;
 }
+
+#comment-section {
+   text-decoration: solid overline 3px darkslateblue;
+}
