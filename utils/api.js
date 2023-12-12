@@ -19,3 +19,11 @@ export const getAnArticleById = (id) =>{
     console.log(err)
  })
 }
+
+export const getCommentsByArticleId = (id)=>{
+    return app.get(`articles/${id}/comments`).then(({data})=>{
+        return data.comments
+    }).catch((err)=>{
+        console.log(err)
+    })
+}
