@@ -24,24 +24,17 @@ export const getCommentsByArticleId = (id)=>{
     return app.get(`articles/${id}/comments`).then(({data})=>{
         return data.comments
     }).catch((err)=>{
-        console.log(err)
+        return err
     })
 }
 
-export const increaseArticleVote = (id)=>{
-    const likeButton = {inc_votes: 1}
+export const patchArticleVote = (id, likeAmount)=>{
+    const likeButton = {inc_votes: likeAmount}
     return app.patch(`/articles/${id}`, likeButton).then(({data}) =>{
         return data.article
-    }).catch((err) =>{
-        console.log(err)
+    }).catch((err)=>{
+        next(err)
     })
 }
 
-export const decreaseArticleVote =(id) =>{
-const dislikeButton = {inc_votes:-1}
-return app.patch(`/articles/${id}`, dislikeButton).then(({data}) =>{
-    return data.article
-}).catch((err) =>{
-    console.log(err)
-})
-}
+

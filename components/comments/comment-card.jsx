@@ -1,12 +1,12 @@
 import { convertToDates } from "../../utils/convertDate";
-
+import { AiFillWechat } from "react-icons/ai";
 const SingleComment = ({ comment }) => {
   const date = convertToDates(comment.created_at);
 
   return (
     <section className="card">
       <h3>{comment.author} said:</h3>
-      <p>{comment.body}</p>
+      <p><AiFillWechat />{comment.body}</p>
       <>
         {date[0]}-{date[1]}-{date[2]},
         {date[3] >= 0 && date[3] < 12 ? (
