@@ -29,14 +29,24 @@ h2 {
     font-size: 30px;
 }
 
-.articles-container {
+.container {
     border: double 5px darkslateblue;
     padding-left: 0px;
 }
 
-.article-card {
+.card {
     border: solid 3px palevioletred;
     border-radius: 7px;
     margin: 5px;
     padding: 5px
+}
+
+.single-article {
+    border: dashed 2px indianred;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.comments {
+    padding-left: 0px;
 }

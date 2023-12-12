@@ -7,6 +7,7 @@ import Welcome from '../components/welcome-page'
 import Articles from '../components/articles/articles-page'
 import SingleArticle from '../components/articles/single-article'
 import { LoadingProvider } from '../context/loading'
+import Comments from '../components/comments/comment-container'
 
 function App() {
 return (
@@ -18,6 +19,7 @@ return (
         <Route path='/' element={<Welcome/>}/>
         <Route path='/articles' element={<Articles/>}/>
         <Route path='/articles/:article_id' element={<SingleArticle/>}/>
+        <Route path='/articles/:article_id/comments' element={<Comments/>}/>
     </Routes>
     </LoadingProvider>
     </>
