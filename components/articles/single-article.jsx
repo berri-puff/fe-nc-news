@@ -23,7 +23,7 @@ if (isLoading) {
 }
 else {
     return (
-    <body>
+    <section className="article-card">
         <p>Article No.{singleArticle.article_id}</p>
         <h2>{singleArticle.title}</h2>
         <p>Topic: {singleArticle.topic}</p>
@@ -32,7 +32,7 @@ else {
         <p>Published on {date[0]}-{date[1]}-{date[2]}, {date[3]}:{date[4]}</p>
         <p>{singleArticle.body}</p>
         <p>{singleArticle.comment_counts} comments</p>
-    </body>
+    </section>
 )
 }
 
