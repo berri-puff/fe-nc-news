@@ -1,6 +1,6 @@
 
 const Header = () =>{
-    return <h1>NC Hot Issues</h1>
+    return <h1>NC Hot Issue</h1>
 }
 
 export default Header

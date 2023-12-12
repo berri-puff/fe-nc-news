@@ -17,18 +17,18 @@ const Articles = () =>{
 
 
     if (isLoading) {
-        return <h2>Fetching the news for you</h2>
+        return <h2>Fetching...</h2>
     }
     else {
          return (
-        <>
+        <main>
         <h2>What's New</h2>
-       <ul className="articles-container">
+       <ul className="container">
         {articles.map((article) =>{
             return <ArticleCards key={article.article_id} article={article}/>
         })}
        </ul>
-        </>
+        </main>
     )
     }
    

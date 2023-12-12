@@ -20,10 +20,20 @@ export const getAnArticleById = (id) =>{
  })
 }
 
+export const getCommentsByArticleId = (id)=>{
+    return app.get(`articles/${id}/comments`).then(({data})=>{
+        return data.comments
+    }).catch((err)=>{
+        console.log(err)
+    })
+}
+
 export const increaseArticleVote = (id)=>{
     const likeButton = {inc_votes: 1}
     return app.patch(`/articles/${id}`, likeButton).then(({data}) =>{
         return data.article
+    }).catch((err) =>{
+        console.log(err)
     })
 }
 
@@ -31,5 +41,7 @@ export const decreaseArticleVote =(id) =>{
 const dislikeButton = {inc_votes:-1}
 return app.patch(`/articles/${id}`, dislikeButton).then(({data}) =>{
     return data.article
+}).catch((err) =>{
+    console.log(err)
 })
 }

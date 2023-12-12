@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { decreaseArticleVote, getAnArticleById, increaseArticleVote } from "../../utils/api";
 import { convertToDates } from "../../utils/convertDate";
 import { LoadingContext } from "../../context/loading";
+import Comments from "../comments/comment-container";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
@@ -43,7 +44,7 @@ const SingleArticle = () => {
   const date = convertToDates(singleArticle.created_at);
 
   if (isLoading) {
-    return <h2>Fetching the news for you</h2>;
+    return <h2>Fetching...</h2>;
   } else {
     return (
       <section className="article-card">
@@ -67,13 +68,24 @@ const SingleArticle = () => {
         <img className="articleImg" src={singleArticle.article_img_url} />
         <p>Written by: {singleArticle.author}</p>
         <p>
-          Published on {date[0]}-{date[1]}-{date[2]}, {date[3]}:{date[4]}
+        Published on {date[0]}-{date[1]}-{date[2]},{" "}
+            {date[3] >= 0 && date[3] < 12 ? (
+              <>
+                {date[3]}:{date[4]}AM
+              </>
+            ) : (
+              <>
+                {date[3]}:{date[4]}PM
+              </>
+            )}
         </p>
         <p>{singleArticle.body}</p>
-        <p>{singleArticle.comment_counts} comments</p>
+        <p>{singleArticle.comment_counts} comments</p>  
+        <Comments />
       </section>
     );
   }
 };
 
 export default SingleArticle;
+   
