@@ -19,3 +19,13 @@ export const getAnArticleById = (id) =>{
     console.log(err)
  })
 }
+
+export const postsNewComment = (id, newComment)=>{
+    const commentToAdd = {
+        username: 'happyamy2016',
+        body: newComment
+    }
+    return app.post(`/articles/${id}/comments`, commentToAdd).then(({data})=>{
+        return data.articles
+    })
+}
