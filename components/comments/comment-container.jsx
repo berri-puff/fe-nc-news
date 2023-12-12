@@ -30,7 +30,7 @@ const Comments = () => {
         return <SingleComment key={comment.comment_id} comment={comment} />;
       })}
     </ol>
-      </>
+       </>
   );
   }
 

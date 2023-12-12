@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { postsNewComment } from "../../utils/api";
+import { FcVoicePresentation } from "react-icons/fc";
 
 const NewComment = ({ setComments }) => {
   const { article_id } = useParams();
@@ -13,7 +14,7 @@ const NewComment = ({ setComments }) => {
   function submitNewComment(event) {
     event.preventDefault();
 
-    postsNewComment(article_id, newComment).then((addedComment) => {
+postsNewComment(article_id, newComment).then((addedComment) => {
       setNewComment("");
       setComments((currComment) => {
          return [addedComment, ...currComment];
@@ -24,7 +25,7 @@ const NewComment = ({ setComments }) => {
 
   return (
     <>
-      <h3 id="comment-section">Speak your mind 🗣️</h3>
+      <h3 id="comment-section">Conversations<FcVoicePresentation /></h3>
       <form onSubmit={submitNewComment}>
         <label htmlFor="commentToAdd">
           Comment:
