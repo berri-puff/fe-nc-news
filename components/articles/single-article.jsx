@@ -7,6 +7,7 @@ import { FcLike, FcDislike} from "react-icons/fc";
 import { BiSolidMessageSquareError } from "react-icons/bi"
 import Comments from "../comments/comment-container";
 
+
 const SingleArticle = () => {
   const { article_id } = useParams();
   const [singleArticle, setSingleArticle] = useState([]);
@@ -54,7 +55,7 @@ const SingleArticle = () => {
           {singleArticle.votes} {singleArticle.votes > 1 ? <>people</> : <>person</>} likes this
           article
           {err ? (
-            <p>
+            <p className="error-popup">
               <BiSolidMessageSquareError />
               {err}
             </p>
