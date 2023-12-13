@@ -9,6 +9,7 @@ const NewComment = ({ setComments }) => {
   const [newComment, setNewComment] = useState("");
   const [err,setErr] = useState(null)
   const [successComment, setSuccessComment] = useState(false)
+  const [disableButton, setDisableButton] = useState(false)
 
   function handleNewComment(event) {
     setNewComment(event.target.value);
@@ -16,12 +17,14 @@ const NewComment = ({ setComments }) => {
 
   function submitNewComment(event) {
     event.preventDefault();
+    setDisableButton(true)
 postsNewComment(article_id, newComment).then((addedComment) => {
       setNewComment("");
       setComments((currComment) => {
          return [addedComment, ...currComment];
         
       });
+      setDisableButton(false)
       setSuccessComment(true)
       setErr(null)
     }).catch((err)=>{
@@ -34,6 +37,8 @@ postsNewComment(article_id, newComment).then((addedComment) => {
       });
     })
   }
+
+
 
   return (
     <>
@@ -50,7 +55,7 @@ postsNewComment(article_id, newComment).then((addedComment) => {
             required
           />
         </label>
-        <button>Comment</button>
+     <button disabled={disableButton}>Comment</button>
       </form>
       {successComment ? <div className="comment-popup">
         <FcApproval />Comment Posted!
