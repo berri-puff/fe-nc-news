@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { getAllTopics } from "../../utils/api"
 import TopicsCard from "./topic-card"
 import { LoadingContext } from "../../context/loading"
+import AddTopic from "./topic-adder"
 
 const Topics = ()=>{
 const [topics, setTopics] = useState([])
@@ -25,6 +26,8 @@ else {
             return <TopicsCard topic = {topic} key={topic.slug}/>
         })}
     </ul>
+    <h3>Think we're missing one? Add it here</h3>
+    <AddTopic/>
     </section>
     )
 }
