@@ -51,6 +51,14 @@ h2 {
     padding-left: 0px;
 }
 
+#comment-section {
+   text-decoration: solid overline 3px darkslateblue;
+}
+
+
+
+
+
 .profilePic {
     width: 300px;
     height: 300px;
