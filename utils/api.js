@@ -29,9 +29,9 @@ export const patchArticleVote = (id, likeAmount)=>{
     })
 }
 
-export const postsNewComment = (id, newComment)=>{
+export const postsNewComment = (id, newComment, user)=>{
     const commentToAdd = {
-        username: 'happyamy2016',
+        username: `${user}`,
         body: newComment
     }
     return app.post(`/articles/${id}/comments`, commentToAdd).then(({data})=>{
