@@ -37,4 +37,14 @@ export const patchArticleVote = (id, likeAmount)=>{
     })
 }
 
+export const getAllUsers = () =>{
+    return app.get('/users').then(({data})=>{
+        return data.users
+    })
+}
 
+export const getUserByUsername = (username) =>{
+    return app.get(`/users/${username}`).then(({data})=>{
+        return data.user
+    })
+}

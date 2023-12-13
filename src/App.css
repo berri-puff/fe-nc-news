@@ -50,3 +50,17 @@ h2 {
 .comments {
     padding-left: 0px;
 }
+
+.profilePic {
+    width: 300px;
+    height: 300px;
+    box-shadow: 0px 0px 7px 2px slateblue,
+    0px 0px 5px 6px plum;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.allUsers {
+    padding-left: 0px;
+}
