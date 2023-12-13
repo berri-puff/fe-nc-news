@@ -44,5 +44,7 @@ export const postsNewComment = (id, newComment)=>{
     }
     return app.post(`/articles/${id}/comments`, commentToAdd).then(({data})=>{
         return data.comment
+    }).catch((err)=>{
+        next(err)
     })
 }
