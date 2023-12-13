@@ -10,7 +10,7 @@ const Navigation = () =>{
         <Link to='/topics' className="nav-buttons">Topics</Link>
         <Link to='/articles'className="nav-buttons">Articles</Link>
         <Link to='/users'className="nav-buttons">Users</Link>
-        {user.length === 0 ? <p>You are not <Link to='/users'>logged in!</Link></p>:<p>You are logged in as {user.username}</p> }
+        {user.length === 0 ? <p className='loginMSG'>You are not <Link to='/users'>logged in!</Link></p>:<p className='loginMSG'>You are logged in as {user.username}</p> }
         </nav>
        
     )

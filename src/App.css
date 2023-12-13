@@ -55,10 +55,6 @@ h2 {
    text-decoration: solid overline 3px darkslateblue;
 }
 
-
-
-
-
 .profilePic {
     width: 300px;
     height: 300px;
@@ -71,4 +67,10 @@ h2 {
 
 .allUsers {
     padding-left: 0px;
+}
+
+.loginMSG {
+    border: dashed 2px slateblue;
+    display: inline-block;
+    padding: 5px
 }

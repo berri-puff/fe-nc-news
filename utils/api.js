@@ -50,3 +50,7 @@ export const getUserByUsername = (username) =>{
         return data.user
     })
 }
+
+export const deleteCommentByID = (id)=>{
+    return app.delete(`/comments/${id}`)
+}
