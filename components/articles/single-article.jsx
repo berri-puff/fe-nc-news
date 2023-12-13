@@ -55,7 +55,7 @@ const SingleArticle = () => {
           {singleArticle.votes} {singleArticle.votes > 1 ? <>people</> : <>person</>} likes this
           article
           {err ? (
-            <p>
+            <p className="error-popup">
               <BiSolidMessageSquareError />
               {err}
             </p>
