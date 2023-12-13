@@ -10,10 +10,12 @@ import { LoadingProvider } from '../context/loading'
 import Comments from '../components/comments/comment-container'
 import UsersContainer from '../components/users/users-container'
 import SingleUser from '../components/users/single-user'
+import { UserProvider } from '../context/user'
 
 function App() {
 return (
     <>
+    <UserProvider>
     <LoadingProvider>
     <Header/>
     <Navigation/>
@@ -26,6 +28,7 @@ return (
         <Route path='/users/:username' element={<SingleUser/>}/>
     </Routes>
     </LoadingProvider>
+    </UserProvider>
     </>
 )
 }
