@@ -4,7 +4,7 @@ const app = axios.create({
   baseURL: "https://hot-issue.onrender.com/api",
 });
 
-export const getsAllArticles = () =>{
+export const getsAllArticles = (query) =>{
     return app.get('/articles').then(({data})=>{
         return data
     })
@@ -48,5 +48,17 @@ export const getAllUsers = () =>{
 export const getUserByUsername = (username) =>{
     return app.get(`/users/${username}`).then(({data})=>{
         return data.user
+    })
+}
+
+export const getAllTopics = ()=>{
+    return app.get(`/topics`).then(({data})=>{
+        return data.topics
+    })
+}
+
+export const getArticleByCategory= (query)=>{
+    return app.get(`/articles?topic=${query}`).then(({data})=>{
+        return data.articles
     })
 }

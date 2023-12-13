@@ -10,6 +10,7 @@ import { LoadingProvider } from '../context/loading'
 import Comments from '../components/comments/comment-container'
 import UsersContainer from '../components/users/users-container'
 import SingleUser from '../components/users/single-user'
+import Topics from '../components/topics/topics-page'
 
 function App() {
 return (
@@ -24,6 +25,7 @@ return (
         <Route path='/articles/:article_id/comments' element={<Comments/>}/>
         <Route path='/users' element={<UsersContainer/>}/>
         <Route path='/users/:username' element={<SingleUser/>}/>
+        <Route path='/topics' element={<Topics/>}/>
     </Routes>
     </LoadingProvider>
     </>
