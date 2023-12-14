@@ -5,21 +5,32 @@ const app = axios.create({
 });
 
 export const getsAllArticles = (topic, filter, order) =>{
-    if (topic){
+
+    const params = {
+        sort_by: filter,
+        order: order
+    }
+    const allParams = {
+        topic: topic,
+        sort_by: filter,
+        order: order
+    }
+    if (topic && filter && order) {
+        return app.get(`/articles`, {params:allParams}).then(({data})=>{
+            return data.articles
+        })
+    }
+    else if (topic){
         return app.get(`/articles?topic=${topic}`).then(({data})=>{
             return data.articles
         })
     }
-    else if (!topic && filter) {
-        return app.get(`/articles?sort_by=${filter}`).then(({data})=>{
+  else if (filter && order) {
+        return app.get(`/articles`, {params:params}).then(({data})=>{
             return data.articles
         })
     }
-    else if (filter && order) {
-        return app.get(`/articles?sort_by=${filter}&order=${order}`).then(({data})=>{
-            return data.articles
-        })
-    }
+
     else {
        return app.get('/articles').then(({data})=>{
         return data
