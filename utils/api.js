@@ -29,9 +29,9 @@ export const patchArticleVote = (id, likeAmount)=>{
     })
 }
 
-export const postsNewComment = (id, newComment)=>{
+export const postsNewComment = (id, newComment, user)=>{
     const commentToAdd = {
-        username: 'happyamy2016',
+        username: `${user}`,
         body: newComment
     }
     return app.post(`/articles/${id}/comments`, commentToAdd).then(({data})=>{
@@ -49,6 +49,10 @@ export const getUserByUsername = (username) =>{
     return app.get(`/users/${username}`).then(({data})=>{
         return data.user
     })
+}
+
+export const deleteCommentByID = (id)=>{
+    return app.delete(`/comments/${id}`)
 }
 
 export const getAllTopics = ()=>{
