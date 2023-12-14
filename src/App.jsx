@@ -9,7 +9,6 @@ import { LoadingProvider } from "../context/loading";
 import Comments from "../components/comments/comment-container";
 import UsersContainer from "../components/users/users-container";
 import SingleUser from "../components/users/single-user";
-import DropMenu from "../components/dropdown";
 import { UserProvider } from '../context/user'
 import Topics from '../components/topics/topics-page'
 

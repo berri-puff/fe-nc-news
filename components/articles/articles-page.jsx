@@ -2,15 +2,45 @@ import { useEffect, useState } from "react"
 import { getsAllArticles } from "../../utils/api"
 import ArticleCards from "./article-card"
 import DropMenu from "../dropdown"
-import Sorts from "../sort-query"
+import { Link } from "react-router-dom"
+
 
 
 const Articles = () =>{
     const [isLoading, setIsLoading] = useState(true)
     const [articles, setArticles] = useState([])
+    const [filter, setFilter] = useState('')
+    const [order, setOrder] = useState('')
     const query = new URLSearchParams(location.search)
     const topic = query.get('topic')
     const sortBy = query.get('sort_by')
+    const orderView = query.get('order')
+
+
+    function addFilterSort (event){
+        setFilter(event.target.value)
+    }
+
+    function filterOrder (event) {
+        setOrder(event.target.value)
+    }
+
+    function filterRequest() {
+        if (!topic) {
+            getsAllArticles(null, filter).then((filtered) => {
+                setArticles(filtered);
+            });
+        }else
+        {
+            getsAllArticles(null, filter, order).then((filtered)=>{
+                console.log(filtered)
+                setArticles(filtered)
+            })
+        }
+    }
+    
+
+
     useEffect(()=>{
 
         if(!topic){     
@@ -27,7 +57,7 @@ const Articles = () =>{
             })
         }
        
-    }, [articles])
+    }, [])
     
     if (isLoading) {
         return <h2>Fetching...</h2>
@@ -37,7 +67,21 @@ const Articles = () =>{
         <main>
         <h2>What's New</h2>
         <DropMenu title='Sort Filter'>    
-        <Sorts setArticles={setArticles}/>
+        <section>
+        <h3>Sort By:</h3>
+        <select onClick={addFilterSort}>
+             <option >title</option>
+             <option>created_at</option>
+             <option>votes</option>
+             <option>author</option>
+       </select>
+       <h3>Order</h3>
+       <select onClick={filterOrder}>
+        <option>ASC</option>
+        <option>DESC</option>
+       </select>
+        <button onClick={filterRequest}>Filter</button>
+        </section>
         </DropMenu>
            
        <ul className="container">
