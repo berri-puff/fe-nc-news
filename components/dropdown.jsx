@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 const DropMenu = ({children, title})=>{
-    const [showContent, setShowContent]= useState(false)
+    const [showContent, setShowContent]= useState(true)
 function dropContent (){
 setShowContent(!showContent)
 }

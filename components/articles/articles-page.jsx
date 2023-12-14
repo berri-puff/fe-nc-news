@@ -32,6 +32,7 @@ const Articles = () =>{
             <h3>Order:</h3>
             <p><input type='checkbox'/>Ascending</p>
             <p><input type='checkbox'/>Descending</p>
+            <button>Filter</button>
         </DropMenu>
        <ul className="container">
         {articles.map((article) =>{
