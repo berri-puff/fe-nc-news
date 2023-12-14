@@ -22,8 +22,8 @@ const UsersContainer = ()=>{
     else {
         return (
         <section>
-        <h2>All Users</h2>
-         <ul className="allUsers">
+        <h2>All Users:</h2>
+         <ul className="container">
             {users.map((user)=>{
                return <UserCards key={user.username} user={user}/>
             })}
