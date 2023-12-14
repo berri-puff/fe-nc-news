@@ -5,9 +5,17 @@ const app = axios.create({
 });
 
 export const getsAllArticles = (query) =>{
-    return app.get('/articles').then(({data})=>{
+    if (query){
+        return app.get(`/articles?topic=${query}`).then(({data})=>{
+            return data.articles
+        })
+    }
+    else {
+       return app.get('/articles').then(({data})=>{
         return data
-    })
+    }) 
+    }
+    
 }
 
 export const getAnArticleById = (id) =>{
@@ -61,8 +69,4 @@ export const getAllTopics = ()=>{
     })
 }
 
-export const getArticleByCategory= (query)=>{
-    return app.get(`/articles?topic=${query}`).then(({data})=>{
-        return data.articles
-    })
-}
+

@@ -1,33 +1,31 @@
-import { useContext, useEffect, useState } from "react"
-import { getArticleByCategory, getsAllArticles } from "../../utils/api"
+import { useEffect, useState } from "react"
+import { getsAllArticles } from "../../utils/api"
 import ArticleCards from "./article-card"
-import { LoadingContext } from "../../context/loading"
 import DropMenu from "../dropdown"
 
 
 const Articles = () =>{
-    const {isLoading, setIsLoading} = useContext(LoadingContext)
+    const [isLoading, setIsLoading] = useState(true)
     const [articles, setArticles] = useState([])
     const query = new URLSearchParams(location.search)
     const topic = query.get('topic')
-
     useEffect(()=>{
-        setIsLoading(true)
-        if(!topic){
+
+        if(!topic){     
+          
              getsAllArticles().then(({articles})=>{
             setArticles(articles)
             setIsLoading(false)
         })
         }
         else {
-            getArticleByCategory(topic).then((articles)=>{
+            getsAllArticles(topic).then((articles)=>{
                 setArticles(articles)
                 setIsLoading(false)
             })
         }
        
-    }, [])
-
+    }, [articles])
 
     if (isLoading) {
         return <h2>Fetching...</h2>
