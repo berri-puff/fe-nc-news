@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getsAllArticles } from "../../utils/api"
 import ArticleCards from "./article-card"
 import DropMenu from "../dropdown"
+import Sorts from "../sort-query"
 
 
 const Articles = () =>{
@@ -9,6 +10,7 @@ const Articles = () =>{
     const [articles, setArticles] = useState([])
     const query = new URLSearchParams(location.search)
     const topic = query.get('topic')
+    const sortBy = query.get('sort_by')
     useEffect(()=>{
 
         if(!topic){     
@@ -26,7 +28,7 @@ const Articles = () =>{
         }
        
     }, [articles])
-
+    
     if (isLoading) {
         return <h2>Fetching...</h2>
     }
@@ -34,16 +36,10 @@ const Articles = () =>{
          return (
         <main>
         <h2>What's New</h2>
-        <DropMenu title='Sort Filter'>
-            <h3>Sort By:</h3>
-            <p><input type='checkbox'/>Article Date</p>
-            <p><input type='checkbox'/>Comment Count</p>
-            <p><input type='checkbox'/>Votes</p>
-            <h3>Order:</h3>
-            <p><input type='checkbox'/>Ascending</p>
-            <p><input type='checkbox'/>Descending</p>
-            <button>Filter</button>
+        <DropMenu title='Sort Filter'>    
+        <Sorts setArticles={setArticles}/>
         </DropMenu>
+           
        <ul className="container">
         {articles.map((article) =>{
             return <ArticleCards key={article.article_id} article={article}/>

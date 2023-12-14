@@ -4,9 +4,14 @@ const app = axios.create({
   baseURL: "https://hot-issue.onrender.com/api",
 });
 
-export const getsAllArticles = (query) =>{
+export const getsAllArticles = (query, filter) =>{
     if (query){
         return app.get(`/articles?topic=${query}`).then(({data})=>{
+            return data.articles
+        })
+    }
+    else if (!query && filter) {
+        return app.get(`/articles?sort_by=${filter}`).then(({data})=>{
             return data.articles
         })
     }
