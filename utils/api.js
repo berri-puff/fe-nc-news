@@ -4,7 +4,7 @@ const app = axios.create({
   baseURL: "https://hot-issue.onrender.com/api",
 });
 
-export const getsAllArticles = () =>{
+export const getsAllArticles = (query) =>{
     return app.get('/articles').then(({data})=>{
         return data
     })
@@ -29,9 +29,9 @@ export const patchArticleVote = (id, likeAmount)=>{
     })
 }
 
-export const postsNewComment = (id, newComment)=>{
+export const postsNewComment = (id, newComment, user)=>{
     const commentToAdd = {
-        username: 'happyamy2016',
+        username: `${user}`,
         body: newComment
     }
     return app.post(`/articles/${id}/comments`, commentToAdd).then(({data})=>{
@@ -48,5 +48,21 @@ export const getAllUsers = () =>{
 export const getUserByUsername = (username) =>{
     return app.get(`/users/${username}`).then(({data})=>{
         return data.user
+    })
+}
+
+export const deleteCommentByID = (id)=>{
+    return app.delete(`/comments/${id}`)
+}
+
+export const getAllTopics = ()=>{
+    return app.get(`/topics`).then(({data})=>{
+        return data.topics
+    })
+}
+
+export const getArticleByCategory= (query)=>{
+    return app.get(`/articles?topic=${query}`).then(({data})=>{
+        return data.articles
     })
 }

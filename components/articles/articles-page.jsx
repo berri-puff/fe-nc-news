@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { getsAllArticles } from "../../utils/api"
+import { getArticleByCategory, getsAllArticles } from "../../utils/api"
 import ArticleCards from "./article-card"
 import { LoadingContext } from "../../context/loading"
 import DropMenu from "../dropdown"
@@ -8,12 +8,24 @@ import DropMenu from "../dropdown"
 const Articles = () =>{
     const {isLoading, setIsLoading} = useContext(LoadingContext)
     const [articles, setArticles] = useState([])
+    const query = new URLSearchParams(location.search)
+    const topic = query.get('topic')
+
     useEffect(()=>{
         setIsLoading(true)
-        getsAllArticles().then(({articles})=>{
+        if(!topic){
+             getsAllArticles().then(({articles})=>{
             setArticles(articles)
             setIsLoading(false)
         })
+        }
+        else {
+            getArticleByCategory(topic).then((articles)=>{
+                setArticles(articles)
+                setIsLoading(false)
+            })
+        }
+       
     }, [])
 
 

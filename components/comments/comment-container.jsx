@@ -27,7 +27,7 @@ const Comments = () => {
       <NewComment setComments={setComments}/>
     <ol className="comments">
       {comments.map((comment) => {
-        return <SingleComment key={comment.comment_id} comment={comment} />;
+        return <SingleComment key={comment.comment_id} comment={comment} setComments={setComments} />;
       })}
     </ol>
        </>

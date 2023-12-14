@@ -10,10 +10,13 @@ import Comments from "../components/comments/comment-container";
 import UsersContainer from "../components/users/users-container";
 import SingleUser from "../components/users/single-user";
 import DropMenu from "../components/dropdown";
+import { UserProvider } from '../context/user'
+import Topics from '../components/topics/topics-page'
 
 function App() {
   return (
     <main>
+    <UserProvider>
       <LoadingProvider>
         <Header />
         <Navigation />
@@ -24,8 +27,10 @@ function App() {
           <Route path="/articles/:article_id/comments" element={<Comments />} />
           <Route path="/users" element={<UsersContainer />} />
           <Route path="/users/:username" element={<SingleUser />} />
+        <Route path='/topics' element={<Topics/>}/>
         </Routes>
       </LoadingProvider>
+    </UserProvider>
     </main>
   );
 }
