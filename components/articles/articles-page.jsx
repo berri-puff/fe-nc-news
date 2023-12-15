@@ -4,6 +4,7 @@ import ArticleCards from "./article-card";
 import DropMenu from "../dropdown";
 import { Link } from "react-router-dom";
 import axios, { AxiosError } from "axios";
+import Error from "../error";
 
 const Articles = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -13,6 +14,8 @@ const Articles = () => {
   const topicQuery = new URLSearchParams(location.search).get("topic");
   const sortBy = new URLSearchParams(location.search).get("sort_by");
   const orderView = new URLSearchParams(location.search).get("order");
+  const [serverErr, setServerErr] = useState(null);
+
 
   function addFilterSort(event) {
     setFilter(event.target.value);
@@ -49,11 +52,18 @@ const Articles = () => {
       getsAllArticles(topicQuery).then((articles) => {
         setArticles(articles);
         setIsLoading(false);
-      })
+      }).catch((error)=>{
+        setIsLoading(false)
+       setServerErr(error.response)
+       })
     }
   }, []);
 
-  if (isLoading) {
+
+  if (serverErr) {
+    return <Error status={serverErr.status} msg={serverErr.data.msg}/>
+  }
+  else if (isLoading) {
     return <h2>Fetching...</h2>;
   } else {
     return (
