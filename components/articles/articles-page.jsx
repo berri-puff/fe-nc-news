@@ -23,13 +23,17 @@ const Articles = () => {
 
   function filterRequest() {
     if (!topicQuery) {
+        setIsLoading(true)
       getsAllArticles(null, filter, order).then((filtered) => {
+        setIsLoading(false)
         setArticles(filtered);
       });
     } else {
-        console.log(topicQuery, filter, order)
+       setIsLoading(true)
       getsAllArticles(topicQuery, filter, order).then((filtered) => {
+        setIsLoading(false)
         setArticles(filtered);
+
       });
     }
   }
