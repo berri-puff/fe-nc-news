@@ -4,10 +4,39 @@ const app = axios.create({
   baseURL: "https://hot-issue.onrender.com/api",
 });
 
-export const getsAllArticles = (query) =>{
-    return app.get('/articles').then(({data})=>{
+export const getsAllArticles = (topic, filter, order) =>{
+
+    const params = {
+        sort_by: filter,
+        order: order
+    }
+    const allParams = {
+        topic: topic,
+        sort_by: filter,
+        order: order
+    }
+    if (topic && filter && order) {
+        return app.get(`/articles`, {params:allParams}).then(({data})=>{
+            return data.articles
+        })
+    }
+    else if (topic){
+        return app.get(`/articles?topic=${topic}`).then(({data})=>{
+            return data.articles
+        })
+    }
+  else if (filter && order) {
+        return app.get(`/articles`, {params:params}).then(({data})=>{
+            return data.articles
+        })
+    }
+
+    else {
+       return app.get('/articles').then(({data})=>{
         return data
-    })
+    }) 
+    }
+    
 }
 
 export const getAnArticleById = (id) =>{
@@ -61,8 +90,4 @@ export const getAllTopics = ()=>{
     })
 }
 
-export const getArticleByCategory= (query)=>{
-    return app.get(`/articles?topic=${query}`).then(({data})=>{
-        return data.articles
-    })
-}
+
