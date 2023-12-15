@@ -34,7 +34,7 @@ export const getsAllArticles = (topic, filter, order) =>{
     else {
        return app.get('/articles').then(({data})=>{
         return data
-    }) 
+    })
     }
     
 }
