@@ -6,6 +6,7 @@ import { LoadingContext } from "../../context/loading";
 import { FcLike, FcDislike} from "react-icons/fc";
 import { BiSolidMessageSquareError } from "react-icons/bi"
 import Comments from "../comments/comment-container";
+import Error from "../error";
 
 
 const SingleArticle = () => {
@@ -14,13 +15,17 @@ const SingleArticle = () => {
   const [likeArticle, setLikeArticle] = useState(false);
   const { isLoading, setIsLoading } = useContext(LoadingContext);
   const [err, setErr] = useState(null);
+  const [serverErr, setServerErr] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
     getAnArticleById(article_id).then(({ article }) => {
       setSingleArticle(article);
       setIsLoading(false);
-    });
+    }).catch((error)=>{
+      setIsLoading(false)
+     setServerErr(error.response)
+     })
   }, []);
 
   function handleLikes(article_id, likeAmount) {
@@ -44,9 +49,13 @@ const SingleArticle = () => {
 
   const date = convertToDates(singleArticle.created_at);
 
-  if (isLoading) {
+if (serverErr) {
+    return <Error status={serverErr.status} msg={serverErr.data.msg}/>
+  }
+  else if (isLoading) {
     return <h2>Fetching...</h2>;
-  } else {
+  } 
+  else {
     return (
       <section className="article-card">
         <p>Article No.{singleArticle.article_id}</p>

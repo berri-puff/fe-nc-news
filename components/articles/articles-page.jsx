@@ -3,6 +3,7 @@ import { getsAllArticles } from "../../utils/api";
 import ArticleCards from "./article-card";
 import DropMenu from "../dropdown";
 import { Link } from "react-router-dom";
+import axios, { AxiosError } from "axios";
 
 const Articles = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,12 +44,12 @@ const Articles = () => {
       getsAllArticles().then(({ articles }) => {
         setArticles(articles);
         setIsLoading(false);
-      });
+      })
     } else {
       getsAllArticles(topicQuery).then((articles) => {
         setArticles(articles);
         setIsLoading(false);
-      });
+      })
     }
   }, []);
 
