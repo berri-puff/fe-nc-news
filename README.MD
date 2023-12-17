@@ -7,9 +7,33 @@ The project is now fully deployed and hosted via Netifly, for the hosted version
 **Navigating the App:**
 
 This app essentially recreates a News website, where users can browse articles, leave comments and like and dislike articles or comments. 
-Navigate the app by clicking on titles and images will allow access to different components. So far, there is no user log-in verification by passwords, instead click on the single user image to be 'logged in'.  
+Navigate the app by clicking on titles and images will allow access to different components. So far, there is no user log-in verification by passwords, instead click on the single user image to be 'logged in'. 
 
 _Note: Unable to retrieve all (unfilted) articles if navigation path to get selected articles is via topics -> a chosen topic_
+
+Current API Endpoints available: 
+
+    - /topics
+
+    - /articles
+
+    - /users 
+
+    - /articles/:article_id 
+
+    - /articles/:article_id/comments 
+
+    - /users/:username
+
+Further API Endpoints to be dealt with: 
+
+    - POST /topic
+
+    - PATCH /comments/comment_id, increase or decrease vote counts 
+
+    - POST /articles 
+
+
 
 **Cloning this locally:**
 1. Fork this repo and run ```git clone``` with your method of choice 
@@ -18,6 +42,6 @@ _Note: Unable to retrieve all (unfilted) articles if navigation path to get sele
 
 ***Make sure your Node version is v20.5.1 and above in order to run this project***
 
-4. Opening a port and see the page running locally at any point, run the commend ```npm run dev``` and follow the Local URL is provides in you terminal 
+4. Opening a port and see the page running locally at any point, run the commend ```npm run dev``` and follow the Local URL provided in the terminal 
 
 Components of the pages will reside in the ```components``` and ```src``` folder.
