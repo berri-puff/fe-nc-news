@@ -32,7 +32,7 @@ const SingleComment = ({ comment, setComments }) => {
   }
 
   return (
-    <section className="card">
+    <section>
       <h3>{comment.author} said:</h3>
       <p>
         <AiFillWechat />

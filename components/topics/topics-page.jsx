@@ -21,7 +21,7 @@ else {
      return (
         <section>
     <h2>Topics Avilable</h2>
-    <ul className= 'container'>
+    <ul>
         {topics.map((topic) =>{
             return <TopicsCard topic = {topic} key={topic.slug}/>
         })}

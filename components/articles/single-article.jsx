@@ -57,7 +57,7 @@ if (serverErr) {
   } 
   else {
     return (
-      <section className="article-card">
+      <section>
         <p>Article No.{singleArticle.article_id}</p>
         <h2>{singleArticle.title}</h2>
         <>
@@ -91,7 +91,7 @@ if (serverErr) {
           {/* )} */}
         </>
         <p>Topic: {singleArticle.topic}</p>
-        <img className="articleImg" src={singleArticle.article_img_url} />
+        <img src={singleArticle.article_img_url} />
         <p>Written by: {singleArticle.author}</p>
         <p>
           Published on {date[0]}-{date[1]}-{date[2]},{" "}

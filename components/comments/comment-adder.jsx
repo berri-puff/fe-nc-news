@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { postsNewComment } from "../../utils/api";
 import { FcVoicePresentation, FcApproval } from "react-icons/fc";
 import { BiSolidMessageSquareError } from "react-icons/bi";
@@ -41,13 +41,15 @@ const currentUser = user.username
       });
   }
 
+
   return (
     <>
-      <h3 id="comment-section">
+      <h3>
         Conversations
         <FcVoicePresentation />
       </h3>
-      <form onSubmit={submitNewComment}>
+      { user.length === 0 ?
+       <p>Make sure to you are<Link to='/users'className="login-link"> logged in!</Link></p> : <form onSubmit={submitNewComment}>
         <label htmlFor="commentToAdd">
           Your thoughts:
           <input
@@ -60,8 +62,8 @@ const currentUser = user.username
           />
         </label>
         <button disabled={disableButton}>Comment</button>
-      </form>
-      {successComment ? (
+      </form>}
+       {successComment ? (
         <div className="comment-popup">
           <FcApproval />
           Comment Posted!

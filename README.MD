@@ -1,6 +1,6 @@
 # Northcoders Front End News Project
 
-This repository contains works of a Front End project to an [API backend project](https://github.com/berri-puff/news-by-jen). Created using Vite and React with Javascript, requests made to the API by Axios.
+This repository contains works of a Front End User centric project to an [API backend project](https://github.com/berri-puff/news-by-jen). Created using Vite and React with Javascript, requests made to the API by Axios.
 
 The project is now fully deployed and hosted via Netifly, for the hosted version [click here](https://nc-hot-issue.netlify.app/)
 
