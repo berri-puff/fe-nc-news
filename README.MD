@@ -1,15 +1,13 @@
 # Northcoders Front End News Project
 
-This repository contains works of a Front End User centric project to an [API backend project](https://github.com/berri-puff/news-by-jen). Created using Vite and React with Javascript, requests made to the API by Axios.
+The repository contains works of a Front End User centric application to an [API backend project](https://github.com/berri-puff/news-by-jen). Created using Vite and React with Javascript, requests made to the API by Axios.
 
 The project is now fully deployed and hosted via Netifly, for the hosted version [click here](https://nc-hot-issue.netlify.app/)
 
 **Navigating the App:**
 
-This app essentially recreates a News website, where users can browse articles, leave comments and like and dislike articles or comments. 
+This app essentially recreates a News website, where users can browse articles, leave comments and like/dislike articles or comments. 
 Navigate the app by clicking on titles and images will allow access to different components. So far, there is no user log-in verification by passwords, instead click on the single user image to be 'logged in'. 
-
-_Note: Unable to retrieve all (unfilted) articles if navigation path to get selected articles is via topics -> a chosen topic_
 
 Current API Endpoints available: 
 
