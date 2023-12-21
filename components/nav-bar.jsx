@@ -5,7 +5,7 @@ import { UserContext } from "../context/user";
 const Navigation = () =>{
     const {user} = useContext(UserContext)
     return (
-        <nav className="nav-bar">
+        <nav>
         <Link to='/' className="nav-buttons">Home</Link>
         <Link to='/topics' className="nav-buttons">Topics</Link>
         <Link to='/articles'className="nav-buttons">Articles</Link>

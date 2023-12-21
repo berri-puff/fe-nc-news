@@ -64,16 +64,16 @@ const currentUser = user.username
         <button disabled={disableButton}>Comment</button>
       </form>}
        {successComment ? (
-        <div className="comment-popup">
+        <>
           <FcApproval />
           Comment Posted!
-        </div>
+        </>
       ) : null}
       {err ? (
-        <div className="error-popup">
+        <>
           <BiSolidMessageSquareError />
           {err}
-        </div>
+        </>
       ) : null}
     </>
   );
