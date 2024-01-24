@@ -12,14 +12,19 @@ import SingleUser from "../components/users/single-user";
 import { UserProvider } from "../context/user";
 import Topics from "../components/topics/topics-page";
 import Error from "../components/error";
+import { ChakraProvider} from '@chakra-ui/react'
 
 
 function App() {
   return (
+  <ChakraProvider > 
+
     <main>
 
+ 
       <UserProvider>
         <LoadingProvider>
+          
           <Header />
           <Navigation />
           <Routes>
@@ -34,10 +39,14 @@ function App() {
             <Route path="/users/:username" element={<SingleUser />} />
             <Route path="/topics" element={<Topics />} />
             <Route path="*" element={<Error />} />
-          </Routes>
+          </Routes>  
+         
         </LoadingProvider>
       </UserProvider>
+   
+     
     </main>
+    </ChakraProvider>
   );
 }
 

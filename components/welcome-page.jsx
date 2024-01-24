@@ -1,12 +1,13 @@
-
+import {Heading} from '@chakra-ui/react'
 const Welcome = () =>{
 
     return (
-        <body>
-           <h2>Start exploring topics and articles today!</h2> 
-        <h2>Don't forget to log-in to start commenting</h2>
-           <h2>Have an article you'd like to talk about? Log in submit a piece!</h2>
-        </body>
+        <main>
+            <Heading size='md'>Start exploring topics and articles today!</Heading> 
+        <Heading size='xs'>Don't forget to log-in to start commenting</Heading>
+           <Heading size='xs'>Have an article you'd like to talk about? Log in submit a piece!</Heading>
+           
+        </main>
     )
 }
 export default Welcome
