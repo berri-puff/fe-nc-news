@@ -33,7 +33,8 @@ Further API Endpoints to be dealt with:
 
     - POST /articles 
 
-
+Other considerations: 
+    - Styling through out the pages
 
 **Cloning this locally:**
 1. Fork this repo and run ```git clone``` with your method of choice 
@@ -42,6 +43,6 @@ Further API Endpoints to be dealt with:
 
 ***Make sure your Node version is v20.5.1 and above in order to run this project***
 
-4. Opening a port and see the page running locally at any point, run the commend ```npm run dev``` and follow the Local URL provided in the terminal 
+4. Opening a port and see the page running locally at any point, run the command ```npm run dev``` and follow the Local URL provided in the terminal 
 
 Components of the pages will reside in the ```components``` and ```src``` folder.
