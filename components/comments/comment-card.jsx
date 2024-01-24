@@ -38,18 +38,7 @@ const SingleComment = ({ comment, setComments }) => {
         <AiFillWechat />
         {comment.body}
       </p>
-      <>
-        {date[0]}-{date[1]}-{date[2]},
-        {date[3] >= 0 && date[3] < 12 ? (
-          <>
-            {date[3]}:{date[4]}AM
-          </>
-        ) : (
-          <>
-            {date[3]}:{date[4]}PM
-          </>
-        )}
-      </>
+     <p>{date}</p>
       <p>Votes: {comment.votes}</p>
 
       <button aria-label="I like this">👍</button>
