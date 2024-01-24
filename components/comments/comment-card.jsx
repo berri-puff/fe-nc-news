@@ -5,6 +5,7 @@ import { UserContext } from "../../context/user";
 import { deleteCommentByID } from "../../utils/api";
 import { BiSolidMessageSquareError } from "react-icons/bi";
 
+
 const SingleComment = ({ comment, setComments }) => {
   const date = convertToDates(comment.created_at);
   const { user } = useContext(UserContext);
@@ -41,7 +42,7 @@ const SingleComment = ({ comment, setComments }) => {
      <p>{date}</p>
       <p>Votes: {comment.votes}</p>
 
-      <button aria-label="I like this">👍</button>
+      <button variant='contained' aria-label="I like this">👍</button>
       <button aria-label="I don't like this">👎</button>
       {user.username === comment.author ? <button onClick={() => {deleteComment(comment.comment_id)}} disabled={disableDeleteButton}>Delete Comment</button> : null}
       {deleteError ? <p><BiSolidMessageSquareError/>{deleteError}</p> : null}

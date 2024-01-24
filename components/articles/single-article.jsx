@@ -95,7 +95,7 @@ if (serverErr) {
         <img src={singleArticle.article_img_url} />
         <p>Written by: {singleArticle.author}</p>
         <p>
-          Published on {date.split(' ',3).join(' ')}
+          Published on {date}
         </p>
         <p>{singleArticle.body}</p>
         <p>{singleArticle.comment_counts} comments</p>

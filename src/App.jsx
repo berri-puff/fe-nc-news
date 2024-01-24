@@ -13,9 +13,11 @@ import { UserProvider } from "../context/user";
 import Topics from "../components/topics/topics-page";
 import Error from "../components/error";
 
+
 function App() {
   return (
     <main>
+
       <UserProvider>
         <LoadingProvider>
           <Header />
