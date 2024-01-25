@@ -10,25 +10,25 @@ const Navigation = () => {
     <nav className="Nav-bar">
       <Tabs variant="soft-rounded" align="center" colorScheme="purple" size='md' isFitted color='teal.600'>
         <TabList>
-          <Tab>
+          <Tab style={{fontSize:'20px'}}>
             <Link to="/" className="nav-buttons">
               Home
             </Link>
           </Tab>
           <StarIcon/>
-          <Tab>
+          <Tab style={{fontSize:'20px'}}>
             <Link to="/topics" className="nav-buttons">
               Topics
             </Link>
           </Tab>
           <StarIcon />
-          <Tab>
+          <Tab style={{fontSize:'20px'}}>
             <Link to="/articles" className="nav-buttons">
               Articles
             </Link>
           </Tab>
           <StarIcon />
-          <Tab>
+          <Tab style={{fontSize:'20px'}}>
             {user.length === 0 ? (
               <Link to="/users" className="nav-buttons">
                 Log In

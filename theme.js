@@ -7,7 +7,8 @@ const theme = extendTheme({
     white: '#fff',
     orange: {
         200: '#FBD38D',
-        300: '#F6AD55'
+        300: '#F6AD55',
+        400: '#ED8936'
     },
     purple: {
         100: '#E9D8FD',
