@@ -13,7 +13,7 @@ const Welcome = () => {
         </section>
      <section className="introduction"> 
              <Heading size='md'>What's this app about?</Heading>
-    <p>As part of the Software Development course in Northcoders, 'Hot Issue' is produced as a project to showcase skills leart during the Front-end production phase, ultilising React.js to allow users interaction and making API calls to the database produced during Back-end development.</p>
+    <p>As part of the Software Development course in Northcoders, 'Hot Issue' was produced as a project to showcase skills leart during the Front-end production phase, ultilising React.js to allow users interaction and making API calls to the database produced during Back-end development.</p>
     <a href='https://github.com/berri-puff/fe-nc-news' target='_blank'className="github-icon"><FaGithubSquare style={{fontSize: '2em'}} /></a>
      </section>
 
