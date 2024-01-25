@@ -36,7 +36,7 @@ const Navigation = () => {
             ) : (
               <p>
                 You are logged in as
-                <span className="logged-in">{user.username}</span>
+                <span className="logged-in"> {user.username}</span>
               </p>
             )}
           </Tab>
