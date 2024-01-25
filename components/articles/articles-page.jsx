@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { getsAllArticles } from "../../utils/api";
 import ArticleCards from "./article-card";
 import DropMenu from "../dropdown";
-import { Link } from "react-router-dom";
-import axios, { AxiosError } from "axios";
+
 import Error from "../error";
 
 const Articles = () => {
@@ -88,7 +87,7 @@ const Articles = () => {
           </section>
         </DropMenu>
 
-        <ul className="container">
+        <ul>
           {articles.map((article) => {
             return <ArticleCards key={article.article_id} article={article} />;
           })}

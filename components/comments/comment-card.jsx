@@ -5,6 +5,7 @@ import { UserContext } from "../../context/user";
 import { deleteCommentByID } from "../../utils/api";
 import { BiSolidMessageSquareError } from "react-icons/bi";
 
+
 const SingleComment = ({ comment, setComments }) => {
   const date = convertToDates(comment.created_at);
   const { user } = useContext(UserContext);
@@ -32,27 +33,16 @@ const SingleComment = ({ comment, setComments }) => {
   }
 
   return (
-    <section className="card">
+    <section>
       <h3>{comment.author} said:</h3>
       <p>
         <AiFillWechat />
         {comment.body}
       </p>
-      <>
-        {date[0]}-{date[1]}-{date[2]},
-        {date[3] >= 0 && date[3] < 12 ? (
-          <>
-            {date[3]}:{date[4]}AM
-          </>
-        ) : (
-          <>
-            {date[3]}:{date[4]}PM
-          </>
-        )}
-      </>
+     <p>{date}</p>
       <p>Votes: {comment.votes}</p>
 
-      <button aria-label="I like this">👍</button>
+      <button variant='contained' aria-label="I like this">👍</button>
       <button aria-label="I don't like this">👎</button>
       {user.username === comment.author ? <button onClick={() => {deleteComment(comment.comment_id)}} disabled={disableDeleteButton}>Delete Comment</button> : null}
       {deleteError ? <p><BiSolidMessageSquareError/>{deleteError}</p> : null}

@@ -20,8 +20,8 @@ if(isLoading){
 else {
      return (
         <section>
-    <h2>Topics Avilable</h2>
-    <ul className= 'container'>
+    <h2>Topics: </h2>
+    <ul>
         {topics.map((topic) =>{
             return <TopicsCard topic = {topic} key={topic.slug}/>
         })}
