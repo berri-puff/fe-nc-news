@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react"
 import { getAllUsers } from "../../utils/api"
-import UserCards from "./users-cards"
 import { LoadingContext } from "../../context/loading"
-
+import {Spinner} from '@chakra-ui/react'
+import { Link } from "react-router-dom"
 
 
 const UsersContainer = ()=>{
@@ -17,17 +17,25 @@ const UsersContainer = ()=>{
     }, [])
 
     if (isLoading) {
-        return <h2>Fetching...</h2>
+        return <Spinner
+        thickness='4px'
+        speed='0.85s'
+        emptyColor='purple.50'
+        color='purple.300'
+        size='xl'
+      />
     }
     else {
         return (
         <section>
-        <h2>All Users:</h2>
-         <ul className="container">
+         <>
             {users.map((user)=>{
-               return <UserCards key={user.username} user={user}/>
+               return <>
+               <h3><Link to={`/users/${user.username}`}>{user.username}</Link></h3>
+        <Link to={`/users/${user.username}`}><img className='profilePic'src={user.avatar_url}/></Link>
+               </>
             })}
-        </ul>
+        </>
         </section>
        
     )  
