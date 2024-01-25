@@ -34,10 +34,10 @@ const Navigation = () => {
                 Log In
               </Link>
             ) : (
-              <p>
+              <Link to="/users" className="nav-buttons">
                 You are logged in as
                 <span className="logged-in"> {user.username}</span>
-              </p>
+              </Link>
             )}
           </Tab>
         </TabList>
