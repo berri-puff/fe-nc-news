@@ -28,14 +28,12 @@ const UsersContainer = ()=>{
     else {
         return (
         <section>
-         <>
             {users.map((user)=>{
-               return <>
+               return <div key={user.username}>
                <h3><Link to={`/users/${user.username}`}>{user.username}</Link></h3>
         <Link to={`/users/${user.username}`}><img className='profilePic'src={user.avatar_url}/></Link>
-               </>
+               </div>
             })}
-        </>
         </section>
        
     )  
