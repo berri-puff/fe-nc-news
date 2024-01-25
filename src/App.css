@@ -2,5 +2,36 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background: #FAF5FF;
 }
+
+.Nav-bar{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.home-page {
+    margin-top: 10px;
+    padding: 10px;
+    display: block;
+    text-align: center;
+}
+
+.instructions {
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.introduction {
+    padding: 10px;
+    margin-top:10px;
+}
+
+.github-icon{
+    display: inline-block;
+    text-align: center;
+}
+
+
+
 

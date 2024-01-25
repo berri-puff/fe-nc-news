@@ -13,11 +13,12 @@ import { UserProvider } from "../context/user";
 import Topics from "../components/topics/topics-page";
 import Error from "../components/error";
 import { ChakraProvider} from '@chakra-ui/react'
+import theme from "../theme";
 
 
 function App() {
   return (
-  <ChakraProvider > 
+  <ChakraProvider theme={theme} > 
 
     <main>
 
