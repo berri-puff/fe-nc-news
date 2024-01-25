@@ -1,12 +1,17 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: #FAF5FF;
+    font-family: 'Song Myung', serif;
 }
 
 .Nav-bar{
-    margin-top: 20px;
+    border-top: 2px dashed #ED8936;
+    padding: 5px;
+    margin-top: 10px;
     margin-bottom: 20px;
 }
 
@@ -31,6 +36,28 @@
     margin: 15px;
     display: inline-block;
     text-align: center;
+}
+
+.topic-container {
+    display: inline-flexbox;
+    text-align: center;
+    flex-direction: column;
+}
+
+.topic {
+   display: inline-flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   font-size: medium;
+   padding: 15px;
+   margin: 10px;
+   transition: box-shadow 0.3s, border-top 0.3s;
+}
+
+.topic:hover {
+    box-shadow: 6px 6px 1px  #ED8936;
+    border-top: solid 3px #D6BCFA;
+    transform: 0;
 }
 
 

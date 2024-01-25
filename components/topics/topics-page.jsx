@@ -3,6 +3,7 @@ import { getAllTopics } from "../../utils/api"
 import TopicsCard from "./topic-card"
 import { LoadingContext } from "../../context/loading"
 import AddTopic from "./topic-adder"
+import {Spinner, Heading} from '@chakra-ui/react'
 
 const Topics = ()=>{
 const [topics, setTopics] = useState([])
@@ -14,19 +15,28 @@ useEffect(()=>{
         setIsLoading(false)
     })
 }, [])
+
 if(isLoading){
-    return <h2>Fetching...</h2>
+    return <section className="topic-container">
+    <Spinner
+  thickness='4px'
+  speed='0.85s'
+  emptyColor='purple.50'
+  color='purple.300'
+  size='xl'
+/>
+    </section>
 }
 else {
      return (
-        <section>
-    <h2>Topics: </h2>
-    <ul>
+        <section className="topic-container">
+    <Heading as='h2' size='lg' color='teal.700'>What's on your mind today? </Heading>
+    <>
         {topics.map((topic) =>{
             return <TopicsCard topic = {topic} key={topic.slug}/>
         })}
-    </ul>
-    <h3>Think we're missing one? Add it here</h3>
+    </>
+    <Heading  as='h3' size='md' color='teal.700'>Think we're missing one? Add it here</Heading >
     <AddTopic/>
     </section>
     )
