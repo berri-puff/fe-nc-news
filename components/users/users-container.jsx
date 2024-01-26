@@ -33,7 +33,8 @@ const UsersContainer = () => {
             <div className="user-box" key={user.username}>
               <Box fontWeight="semibold" padding="5px" margin="10px" size='md'>
                 <Link to={`/users/${user.username}`}>
-                  <Avatar
+                  <Avatar 
+                  className="profile-pic"
                     size="2xl"
                     src={user.avatar_url}
                   ></Avatar>

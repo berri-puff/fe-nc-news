@@ -71,6 +71,16 @@ margin: 5px;
 .users-container {
     text-align: center;
 }
+
+.profile-pic{
+    transition: box-shadow 0.3s, border-top 0.3s;
+    margin-bottom: 7px;
+}
+.profile-pic:hover {
+    box-shadow: 5ipx 5px 3px  #D6BCFA;
+   
+}
+
  
 
 
