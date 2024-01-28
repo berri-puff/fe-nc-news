@@ -33,27 +33,28 @@ const SingleUser = () => {
         return <Error status={serverErr.status} msg={serverErr.data.msg}/>
   } else if (isLoading) {
     return (
-      <> <Heading as='h2' size='lg' color='teal.700' textAlign='center'>Fetching...</Heading >
+      <section className="loading-container"> 
+      <Heading as='h2' size='lg' color='teal.700' >Fetching...</Heading >
+      <> </>
     <Spinner
     thickness="4px"
     speed="0.85s"
     emptyColor="purple.50"
     color="purple.300"
     size="xl"
-    display='block'
-    justifyContent='center'
   />
-      </>
+      </section>
    )
   } else {
     return (
       <section className="single-user">
-        <Heading as='h2' size='md'>Username: <Highlight query={singleUser.username} styles={{rounded:'full', bg:'orange.200', px: '3'}}>{singleUser.username}</Highlight></Heading>
-        <Heading as='h3' size='md'>Name:
-        <Highlight query={singleUser.name} styles={{rounded:'full', bg:'orange.200', px: '3'}}>{singleUser.name}</Highlight>
+        <Heading as='h1' size='lg' color='teal.700'>Click on the avatar to log in!</Heading>
+        <p>If you like to change user, click on the button top right to navigate you back to the users page.</p>
+        <Heading as='h2' size='md' margin='5px' padding='5px'>Username: <span className='name'>{singleUser.username}</span></Heading>
+        <Heading as='h3' size='md' margin='5px' padding='5px'>Name: <span className="name">{singleUser.name}</span>
         </Heading>
 
-        <img
+        <img className="profile-pic"
           src={singleUser.avatar_url}
         width='200px'
       height='auto'

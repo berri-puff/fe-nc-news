@@ -73,20 +73,34 @@ margin: 5px;
 }
 
 .profile-pic{
+    display: block;
+    margin: 0 auto;
     transition: box-shadow 0.3s, border-top 0.3s;
     margin-bottom: 7px;
+    margin-top: 7px;
 }
 .profile-pic:hover {
-    box-shadow: 5ipx 5px 3px  #D6BCFA;
+    box-shadow: 5px 5px 3px  #D6BCFA;
    
 }
 
 .single-user {
     text-align: center;
-    
+
 }
 
+.name {
+    background-color: #FBD38D;
+    border-radius: 30px;
+    padding: 7px 5px
+}
  
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
 
 
