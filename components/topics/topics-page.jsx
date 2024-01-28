@@ -17,15 +17,19 @@ useEffect(()=>{
 }, [])
 
 if(isLoading){
-    return <section className="topic-container">
-    <Spinner
-  thickness='4px'
-  speed='0.85s'
-  emptyColor='purple.50'
-  color='purple.300'
-  size='xl'
-/>
-    </section>
+    return(
+        <section className="loading-container"> 
+        <Heading as='h2' size='lg' color='teal.700' >Fetching...</Heading >
+        <> </>
+      <Spinner
+      thickness="4px"
+      speed="0.85s"
+      emptyColor="purple.50"
+      color="purple.300"
+      size="xl"
+    />
+        </section>
+     );
 }
 else {
      return (
