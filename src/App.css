@@ -69,10 +69,6 @@ margin: 5px;
 
 }
 
-.users-container {
-    text-align: center;
-}
-
 .profile-pic{
     display: block;
     margin: 0 auto;
@@ -85,10 +81,6 @@ margin: 5px;
    
 }
 
-.single-user {
-    text-align: center;
-
-}
 
 .name {
     background-color: #FBD38D;
@@ -113,6 +105,9 @@ margin: 5px;
     margin: 10px;
 }
 
+.likes {
+    display: inline-block;
+}
 
 
 
