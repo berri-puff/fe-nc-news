@@ -6,6 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Song Myung', serif;
+    text-align: center;
 }
 
 .Nav-bar{
@@ -102,13 +103,16 @@ margin: 5px;
     flex-direction: column;
 }
 
-.article-container {
-    display: flex;
+.article-card {
+    display: inline-block;
     text-align: center;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    margin: 10px;
 }
+
 
 
 

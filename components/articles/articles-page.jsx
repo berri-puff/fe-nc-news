@@ -79,7 +79,7 @@ const Articles = () => {
    )
     } else {
     return (
-      <main className="article-container">
+      <main className="article-page">
         <Heading as='h1'size='lg' color='teal.700'>What's New</Heading>
         <DropMenu title="Sort Filter">
           <section>
@@ -100,11 +100,11 @@ const Articles = () => {
           </section>
         </DropMenu>
 
-        <ul>
+        <>
           {articles.map((article) => {
             return <ArticleCards key={article.article_id} article={article} />;
           })}
-        </ul>
+        </>
       </main>
     );
   }
