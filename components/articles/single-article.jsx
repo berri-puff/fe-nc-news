@@ -107,12 +107,13 @@ const SingleArticle = () => {
         </Heading>
         <p>Published on: {date}</p>
         <p>By: {singleArticle.author}</p>
-        <Tag size='md' variant='subtle' colorScheme={tagColor} marginBottom='5px'>{capitaliseTopics}</Tag> 
+        <Tag size='lg' variant='subtle' colorScheme={tagColor} marginBottom='5px'>{capitaliseTopics}</Tag> 
         <div className="likes">
           {singleArticle.votes}
           {singleArticle.votes > 1 ? <> people</> : <> person</>} likes this
           article
           <button
+          className="like-buttons"
             aria-label="like this article"
             onClick={() => {
               handleLikes(singleArticle.article_id, +1);
@@ -122,6 +123,7 @@ const SingleArticle = () => {
             <FcLike />
           </button>
           <button
+          className="like-buttons"
             aria-label="dislike this article"
             onClick={() => {
               handleLikes(singleArticle.article_id, -1);
