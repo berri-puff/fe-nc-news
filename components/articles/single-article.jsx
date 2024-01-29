@@ -4,10 +4,9 @@ import { getAnArticleById, patchArticleVote } from "../../utils/api";
 import { convertToDates } from "../../utils/convertDate";
 import { LoadingContext } from "../../context/loading";
 import { FcLike, FcDislike } from "react-icons/fc";
-import { BiSolidMessageSquareError } from "react-icons/bi";
 import Comments from "../comments/comment-container";
 import Error from "../error";
-import { Heading, Spinner, Tag, useToast} from "@chakra-ui/react";
+import { Heading, Spinner, Tag, useToast, Divider} from "@chakra-ui/react";
 import { capitaliseWord } from "../../utils/capitalise"
 
 const SingleArticle = () => {
@@ -15,8 +14,8 @@ const SingleArticle = () => {
   const [singleArticle, setSingleArticle] = useState([]);
   const [ikeArticle, setLikeArticle] = useState(false)
   const { isLoading, setIsLoading } = useContext(LoadingContext);
-  const [err, setErr] = useState(null);
   const [serverErr, setServerErr] = useState(null);
+  const toast =useToast()
   const capitaliseTopics = singleArticle.topic? capitaliseWord(singleArticle.topic) : null
   let tagColor = ''
   if (capitaliseTopics === 'Coding') {
@@ -51,10 +50,16 @@ const SingleArticle = () => {
       if (currentArticle.article_id === article_id) {
         return { ...currentArticle, votes: currentArticle.votes + likeAmount };
       }
-    });
-    setErr(null);
+    }
+    );
     patchArticleVote(article_id, likeAmount).catch((err) => {
-      setErr("Can't like this article at the moment");
+      toast({
+        title: 'Error',
+        description: "Unable to like this article at the moment",
+        status: 'error',
+        duration: 4000,
+        isClosable: true
+      })
       setSingleArticle((currentArticle) => {
         if (currentArticle.article_id === article_id) {
           return {
@@ -102,26 +107,21 @@ const SingleArticle = () => {
         </Heading>
         <p>Published on: {date}</p>
         <p>By: {singleArticle.author}</p>
-        <Tag size='md' variant='subtle' colorScheme={tagColor} marginBottom='5px'>{capitaliseTopics}</Tag> 
+        <Tag size='lg' variant='subtle' colorScheme={tagColor} marginBottom='5px'>{capitaliseTopics}</Tag> 
         <div className="likes">
-          {singleArticle.votes}
-          {singleArticle.votes > 1 ? <> people</> : <> person</>} likes this
-          article
-          {err ? (
-            <p>
-              <BiSolidMessageSquareError />
-              {err}
-            </p>
-          ) : null}
+          {singleArticle.votes} likes this article
           <button
+          className="like-buttons"
             aria-label="like this article"
             onClick={() => {
               handleLikes(singleArticle.article_id, +1);
+              
             }}
           >
             <FcLike />
           </button>
           <button
+          className="like-buttons"
             aria-label="dislike this article"
             onClick={() => {
               handleLikes(singleArticle.article_id, -1);
@@ -135,7 +135,8 @@ const SingleArticle = () => {
         
         <p className="article-body">{singleArticle.body}</p>
         
-        <p>{singleArticle.comment_counts} comments</p>
+        <p className="comment-counts">{singleArticle.comment_counts} comments</p>
+        
         <Comments />
       </section>
     );
