@@ -13,6 +13,7 @@ import { capitaliseWord } from "../../utils/capitalise"
 const SingleArticle = () => {
   const { article_id } = useParams();
   const [singleArticle, setSingleArticle] = useState([]);
+  const [ikeArticle, setLikeArticle] = useState(false)
   const { isLoading, setIsLoading } = useContext(LoadingContext);
   const [err, setErr] = useState(null);
   const [serverErr, setServerErr] = useState(null);
@@ -73,7 +74,7 @@ const SingleArticle = () => {
     return <Error status={serverErr.status} msg={serverErr.data.msg} />;
   } else if (isLoading) {
     return (
-      <section className="loading-container">
+      <section className="article-container">
         <Heading as="h2" size="lg" color="teal.700">
           Fetching...
         </Heading>
@@ -89,7 +90,7 @@ const SingleArticle = () => {
     );
   } else {
     return (
-      <section className="loading-container">
+      <section className="article-container">
         <Heading
           as="h2"
           size="lg"
@@ -104,7 +105,7 @@ const SingleArticle = () => {
         <Tag size='md' variant='subtle' colorScheme={tagColor} marginBottom='5px'>{capitaliseTopics}</Tag> 
         <div className="likes">
           {singleArticle.votes}
-          {singleArticle.votes > 1 ? <>people</> : <>person</>} likes this
+          {singleArticle.votes > 1 ? <> people</> : <> person</>} likes this
           article
           {err ? (
             <p>
@@ -132,7 +133,7 @@ const SingleArticle = () => {
         <img src={singleArticle.article_img_url}  />
        
         
-        <p>{singleArticle.body}</p>
+        <p className="article-body">{singleArticle.body}</p>
         
         <p>{singleArticle.comment_counts} comments</p>
         {/* <Comments /> */}

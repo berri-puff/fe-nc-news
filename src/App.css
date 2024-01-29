@@ -109,6 +109,20 @@ margin: 5px;
     display: inline-block;
 }
 
+.article-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-left: dotted 3px #ED8936;
+    border-right: dotted 3px #ED8936;
+    margin: 30px;
+}
+
+.article-body {
+padding: 5px;
+  margin: 15px;
+}
 
 
 
