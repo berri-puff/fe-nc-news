@@ -109,9 +109,7 @@ const SingleArticle = () => {
         <p>By: {singleArticle.author}</p>
         <Tag size='lg' variant='subtle' colorScheme={tagColor} marginBottom='5px'>{capitaliseTopics}</Tag> 
         <div className="likes">
-          {singleArticle.votes}
-          {singleArticle.votes > 1 ? <> people</> : <> person</>} likes this
-          article
+          {singleArticle.votes} likes this article
           <button
           className="like-buttons"
             aria-label="like this article"
