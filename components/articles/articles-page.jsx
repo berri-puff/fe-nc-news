@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getsAllArticles } from "../../utils/api";
 import ArticleCards from "./article-card";
 import DropMenu from "../dropdown";
+import {Heading, Spinner} from '@chakra-ui/react'
 
 import Error from "../error";
 
@@ -63,11 +64,23 @@ const Articles = () => {
     return <Error status={serverErr.status} msg={serverErr.data.msg}/>
   }
   else if (isLoading) {
-    return <h2>Fetching...</h2>;
-  } else {
     return (
-      <main>
-        <h2>What's New</h2>
+      <section className="loading-container"> 
+      <Heading as='h2' size='lg' color='teal.700' >Fetching...</Heading >
+      <> </>
+    <Spinner
+    thickness="4px"
+    speed="0.85s"
+    emptyColor="purple.50"
+    color="purple.300"
+    size="xl"
+  />
+      </section>
+   )
+    } else {
+    return (
+      <main className="article-page">
+        <Heading as='h1'size='lg' color='teal.700'>What's New</Heading>
         <DropMenu title="Sort Filter">
           <section>
             <h3>Sort By:</h3>
@@ -87,11 +100,11 @@ const Articles = () => {
           </section>
         </DropMenu>
 
-        <ul>
+        <>
           {articles.map((article) => {
             return <ArticleCards key={article.article_id} article={article} />;
           })}
-        </ul>
+        </>
       </main>
     );
   }

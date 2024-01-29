@@ -3,29 +3,46 @@ import { useParams } from "react-router-dom";
 import { getAnArticleById, patchArticleVote } from "../../utils/api";
 import { convertToDates } from "../../utils/convertDate";
 import { LoadingContext } from "../../context/loading";
-import { FcLike, FcDislike} from "react-icons/fc";
-import { BiSolidMessageSquareError } from "react-icons/bi"
+import { FcLike, FcDislike } from "react-icons/fc";
+import { BiSolidMessageSquareError } from "react-icons/bi";
 import Comments from "../comments/comment-container";
 import Error from "../error";
-
+import { Heading, Spinner, Tag, useToast} from "@chakra-ui/react";
+import { capitaliseWord } from "../../utils/capitalise"
 
 const SingleArticle = () => {
   const { article_id } = useParams();
   const [singleArticle, setSingleArticle] = useState([]);
-  const [likeArticle, setLikeArticle] = useState(false);
+  const [ikeArticle, setLikeArticle] = useState(false)
   const { isLoading, setIsLoading } = useContext(LoadingContext);
   const [err, setErr] = useState(null);
   const [serverErr, setServerErr] = useState(null);
-
+  const capitaliseTopics = singleArticle.topic? capitaliseWord(singleArticle.topic) : null
+  let tagColor = ''
+  if (capitaliseTopics === 'Coding') {
+      tagColor= 'pink'
+  } else if (
+      capitaliseTopics === 'Cooking' 
+  ){
+      tagColor = 'teal'
+  }
+  else if (capitaliseTopics === 'Football') {
+      tagColor = 'orange'
+  }
+  else {
+      tagColor='purple'
+  }
   useEffect(() => {
     setIsLoading(true);
-    getAnArticleById(article_id).then(({ article }) => {
-      setSingleArticle(article);
-      setIsLoading(false);
-    }).catch((error)=>{
-      setIsLoading(false)
-     setServerErr(error.response)
-     })
+    getAnArticleById(article_id)
+      .then(({ article }) => {
+        setSingleArticle(article);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setServerErr(error.response);
+      });
   }, []);
 
   function handleLikes(article_id, likeAmount) {
@@ -36,68 +53,88 @@ const SingleArticle = () => {
       }
     });
     setErr(null);
-    patchArticleVote(article_id, likeAmount).catch((err) => { 
-       setErr("Can't like this article at the moment");
+    patchArticleVote(article_id, likeAmount).catch((err) => {
+      setErr("Can't like this article at the moment");
       setSingleArticle((currentArticle) => {
         if (currentArticle.article_id === article_id) {
-          return {...currentArticle, votes: currentArticle.votes - likeAmount}
+          return {
+            ...currentArticle,
+            votes: currentArticle.votes - likeAmount,
+          };
         }
       });
-    
     });
   }
 
-  const date = singleArticle.created_at ? convertToDates(singleArticle.created_at): null
-console.log(date)
+  const date = singleArticle.created_at
+    ? convertToDates(singleArticle.created_at)
+    : null;
 
-if (serverErr) {
-    return <Error status={serverErr.status} msg={serverErr.data.msg}/>
-  }
-  else if (isLoading) {
-    return <h2>Fetching...</h2>;
-  } 
-  else {
+  if (serverErr) {
+    return <Error status={serverErr.status} msg={serverErr.data.msg} />;
+  } else if (isLoading) {
     return (
-      <section>
-        <p>Article No.{singleArticle.article_id}</p>
-        <h2>{singleArticle.title}</h2>
-        <>
-          {singleArticle.votes} {singleArticle.votes > 1 ? <>people</> : <>person</>} likes this
+      <section className="article-container">
+        <Heading as="h2" size="lg" color="teal.700">
+          Fetching...
+        </Heading>
+        <> </>
+        <Spinner
+          thickness="4px"
+          speed="0.85s"
+          emptyColor="purple.50"
+          color="purple.300"
+          size="xl"
+        />
+      </section>
+    );
+  } else {
+    return (
+      <section className="article-container">
+        <Heading
+          as="h2"
+          size="lg"
+          color="teal.700"
+          textDecoration="underline 2px solid"
+          marginBottom="3px"
+        >
+          {singleArticle.title}
+        </Heading>
+        <p>Published on: {date}</p>
+        <p>By: {singleArticle.author}</p>
+        <Tag size='md' variant='subtle' colorScheme={tagColor} marginBottom='5px'>{capitaliseTopics}</Tag> 
+        <div className="likes">
+          {singleArticle.votes}
+          {singleArticle.votes > 1 ? <> people</> : <> person</>} likes this
           article
           {err ? (
-            <p className="error-popup">
+            <p>
               <BiSolidMessageSquareError />
               {err}
             </p>
           ) : null}
-          {/* {likeArticle ? null : ( */}
-            <button
-              aria-label="like this article"
-              onClick={() => {
-                handleLikes(singleArticle.article_id, +1);
-              }}
-            >
-              <FcLike />
-            </button>
-          {/* )} */}
-          {/* {likeArticle ? null : ( */}
-            <button
-              aria-label="dislike this article"
-              onClick={() => {
-                handleLikes(singleArticle.article_id, -1);
-              }}
-            >
-              <FcDislike />
-            </button>
-          {/* )} */}
-        </>
-        <p>Topic: {singleArticle.topic}</p>
-        <img src={singleArticle.article_img_url} />
-        <p>Written by: {singleArticle.author}</p>
-        <p>
-          Published on {date}
-        </p>
-        <p>{singleArticle.body}</p>
+          <button
+            aria-label="like this article"
+            onClick={() => {
+              handleLikes(singleArticle.article_id, +1);
+            }}
+          >
+            <FcLike />
+          </button>
+          <button
+            aria-label="dislike this article"
+            onClick={() => {
+              handleLikes(singleArticle.article_id, -1);
+            }}
+          >
+            <FcDislike />
+          </button>
+        </div>
+        <img src={singleArticle.article_img_url}  />
+       
+        
+        <p className="article-body">{singleArticle.body}</p>
+        
         <p>{singleArticle.comment_counts} comments</p>
         <Comments />
       </section>

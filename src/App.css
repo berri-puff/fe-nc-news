@@ -6,6 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Song Myung', serif;
+    text-align: center;
 }
 
 .Nav-bar{
@@ -68,10 +69,6 @@ margin: 5px;
 
 }
 
-.users-container {
-    text-align: center;
-}
-
 .profile-pic{
     display: block;
     margin: 0 auto;
@@ -84,10 +81,6 @@ margin: 5px;
    
 }
 
-.single-user {
-    text-align: center;
-
-}
 
 .name {
     background-color: #FBD38D;
@@ -102,6 +95,34 @@ margin: 5px;
     flex-direction: column;
 }
 
+.article-card {
+    display: inline-block;
+    text-align: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.likes {
+    display: inline-block;
+}
+
+.article-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-left: dotted 3px #ED8936;
+    border-right: dotted 3px #ED8936;
+    margin: 30px;
+}
+
+.article-body {
+padding: 5px;
+  margin: 15px;
+}
 
 
 
