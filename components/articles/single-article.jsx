@@ -6,7 +6,7 @@ import { LoadingContext } from "../../context/loading";
 import { FcLike, FcDislike } from "react-icons/fc";
 import Comments from "../comments/comment-container";
 import Error from "../error";
-import { Heading, Spinner, Tag, useToast} from "@chakra-ui/react";
+import { Heading, Spinner, Tag, useToast, Divider} from "@chakra-ui/react";
 import { capitaliseWord } from "../../utils/capitalise"
 
 const SingleArticle = () => {
@@ -135,7 +135,8 @@ const SingleArticle = () => {
         
         <p className="article-body">{singleArticle.body}</p>
         
-        <p>{singleArticle.comment_counts} comments</p>
+        <p className="comment-counts">{singleArticle.comment_counts} comments</p>
+        <Divider/>
         <Comments />
       </section>
     );
