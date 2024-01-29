@@ -136,7 +136,7 @@ const SingleArticle = () => {
         <p className="article-body">{singleArticle.body}</p>
         
         <p>{singleArticle.comment_counts} comments</p>
-        {/* <Comments /> */}
+        <Comments />
       </section>
     );
   }
