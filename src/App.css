@@ -124,6 +124,37 @@ padding: 5px;
   margin: 15px;
 }
 
+.login-link:hover {
+    text-decoration: double underline #ED64A6;
+}
+
+.comment-box {
+    font-size: large
+}
+
+.comment-input:focus {
+ border: 3px solid #B794F4!important;
+}
+
+.comment-button {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 10px;
+ margin-bottom: 10px;
+    outline: 1.5px solid #805AD5;
+    border-radius: 5px;
+}
+
+.comment-icon {
+    display: inline-block;
+    padding-right: 3px;
+    font-size: larger;
+}
+
+.comment-button:hover {
+    background-color:#FAF5FF ;
+}
+
 
 
 

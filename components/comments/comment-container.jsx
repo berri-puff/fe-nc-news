@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getCommentsByArticleId } from "../../utils/api";
 import NewComment from "./comment-adder";
 import SingleComment from "./comment-card";
-
+import { Heading, Spinner, Tag, useToast} from "@chakra-ui/react";
 
 const Comments = () => {
   const { article_id } = useParams();
@@ -19,17 +19,31 @@ const Comments = () => {
   }, []);
 
   if (isLoading) {
-    return <h2>Fetching Comments</h2>
+    return (
+      <section className="article-container">
+        <Heading as="h2" size="lg" color="teal.700">
+          Fetching...
+        </Heading>
+        <> </>
+        <Spinner
+          thickness="4px"
+          speed="0.85s"
+          emptyColor="purple.50"
+          color="purple.300"
+          size="xl"
+        />
+      </section>
+    );
   }
   else {
       return (
         <>
       <NewComment setComments={setComments}/>
-    <ul>
+    <>
       {comments.map((comment) => {
         return <SingleComment key={comment.comment_id} comment={comment} setComments={setComments} />;
       })}
-    </ul>
+    </>
        </>
   );
   }
