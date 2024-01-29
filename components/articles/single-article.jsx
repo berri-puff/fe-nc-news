@@ -136,7 +136,7 @@ const SingleArticle = () => {
         <p className="article-body">{singleArticle.body}</p>
         
         <p className="comment-counts">{singleArticle.comment_counts} comments</p>
-        <Divider/>
+        
         <Comments />
       </section>
     );

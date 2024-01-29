@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { postsNewComment } from "../../utils/api";
 import { MdAddComment } from "react-icons/md";
 import { UserContext } from "../../context/user";
-import {useToast, Textarea} from '@chakra-ui/react'
+import {useToast, Textarea, Button} from '@chakra-ui/react'
 
 const NewComment = ({ setComments }) => {
   const { article_id } = useParams();
@@ -35,6 +35,10 @@ postsNewComment(article_id, newComment, currentUser)
         setDisableButton(false);
       })
       .catch((err) => {
+        setComments((currComment) => {
+          return [...currComment];
+        });
+        setDisableButton(false)
         toast({
           title: 'Error',
           description: "Unable to post your comment right now, try again later",
@@ -42,10 +46,6 @@ postsNewComment(article_id, newComment, currentUser)
           duration: 4000,
           isClosable: true,
         })
-        setComments((currComment) => {
-          return [...currComment];
-        });
-        setDisableButton(false)
       });
 
     
@@ -68,10 +68,10 @@ postsNewComment(article_id, newComment, currentUser)
             required
           />
         </label>
-        <button disabled={disableButton} className="comment-button"><MdAddComment className="comment-icon"/>Comment</button>
+        <button disabled={disableButton} className="comment-button">Comment</button>
       </form>
     }
-     
+
     </>
   );
 };

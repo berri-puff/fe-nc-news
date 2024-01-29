@@ -39,11 +39,11 @@ const Comments = () => {
       return (
         <>
       <NewComment setComments={setComments}/>
-    <>
+    <section className="comment-container">
       {comments.map((comment) => {
         return <SingleComment key={comment.comment_id} comment={comment} setComments={setComments} />;
       })}
-    </>
+    </section>
        </>
   );
   }
