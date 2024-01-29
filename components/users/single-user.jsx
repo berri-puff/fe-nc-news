@@ -4,7 +4,7 @@ import { getUserByUsername } from "../../utils/api";
 import { UserContext } from "../../context/user";
 import { LoadingContext } from "../../context/loading";
 import Error from "../error";
-import {Spinner, Heading,Highlight, Divider} from '@chakra-ui/react'
+import {Spinner, Heading} from '@chakra-ui/react'
 
 const SingleUser = () => {
   const { username } = useParams();
