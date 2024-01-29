@@ -1,6 +1,7 @@
 import { useContext, useState, React} from "react";
 import { convertToDates } from "../../utils/convertDate";
 import { AiFillWechat } from "react-icons/ai";
+import { FcLike, FcDislike } from "react-icons/fc";
 import { UserContext } from "../../context/user";
 import { deleteCommentByID } from "../../utils/api";
 import { Card, CardHeader, CardBody, CardFooter, Stack, Box, Divider, Heading,  AlertDialog,
@@ -76,8 +77,8 @@ const toast=useToast()
       <Divider/>
             <Box>
       <p>Votes: {comment.votes}</p>
-      <button aria-label="I like this">👍</button>
-      <button aria-label="I don't like this">👎</button>
+      <button className='like-buttons'aria-label="I like this"><FcLike/></button>
+      <button className='like-buttons'aria-label="I don't like this"><FcDislike/></button>
             </Box>
             <CardFooter className='delete-box'>
 
