@@ -1,6 +1,8 @@
 # Northcoders Front End News Project
 
-The repository contains works of a Front End User centric application to an [API backend project](https://github.com/berri-puff/news-by-jen). Created using Vite and React with Javascript, requests made to the API by Axios.
+The repository contains works of a Front End User centric application to an [API backend project](https://github.com/berri-puff/news-by-jen). 
+
+This project was created by using Vite and React with Javascript, requests made to the API by Axios. Styling on the app is done partically styled with third-party UI library: Chakra, and in combinaion with standard CSS throughout. 
 
 The project is now fully deployed and hosted via Netifly, for the hosted version [click here](https://nc-hot-issue.netlify.app/)
 
@@ -31,8 +33,6 @@ Further API Endpoints to be dealt with:
 
     - POST /articles 
 
-Other considerations: 
-    - Styling through out the pages
 
 **Cloning this locally:**
 1. Fork this repo and run ```git clone``` with your method of choice 
@@ -44,3 +44,5 @@ Other considerations:
 4. Opening a port and see the page running locally at any point, run the command ```npm run dev``` and follow the Local URL provided in the terminal 
 
 Components of the pages will reside in the ```components``` and ```src``` folder.
+
+
