@@ -220,8 +220,18 @@ padding: 0;
     border-radius: 5px; 
 }
 
+.error{
+    margin-top: 40px;
+    margin-left: 35%;
+    margin-right:35%;
+}
 
-
+.error-icon {
+    display: inline;
+    margin-left: 10px;
+    font-size: larger;
+    vertical-align: top;
+}
 
 
 
