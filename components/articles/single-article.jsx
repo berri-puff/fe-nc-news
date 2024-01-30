@@ -138,6 +138,7 @@ const SingleArticle = () => {
         <p className="comment-counts">{singleArticle.comment_counts} comments</p>
         
         <Comments />
+        <button className="scroll-button"><a href='#top'>Back To Top</a></button>
       </section>
     );
   }
