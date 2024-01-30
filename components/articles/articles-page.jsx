@@ -107,6 +107,7 @@ const Articles = () => {
             return <ArticleCards key={article.article_id} article={article} />;
           })}
         </>
+        <button className="scroll-button"><a href='#top'>Back To Top</a></button>
       </main>
     );
   }

@@ -233,5 +233,20 @@ padding: 0;
     vertical-align: top;
 }
 
+.scroll-button {
+    bottom: 20px;
+    position: fixed;
+    display: block;
+    right: 40px;
+    background-color: #FFF5F7;
+    font-weight: bolder;
+    border: 1px solid ;
+    font-size: large;
+    padding: 10px;
+    border-radius: 10px;
+    color: #B83280;
+    z-index: 99;
+}
+
 
 
