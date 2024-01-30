@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { getsAllArticles } from "../../utils/api";
 import ArticleCards from "./article-card";
 import DropMenu from "../dropdown";
-import {Heading, Spinner} from '@chakra-ui/react'
+import {
+  Heading, Spinner, Button
+} from '@chakra-ui/react'
 
 import Error from "../error";
 
@@ -81,22 +83,22 @@ const Articles = () => {
     return (
       <main className="article-page">
         <Heading as='h1'size='lg' color='teal.700'>What's New</Heading>
-        <DropMenu title="Sort Filter">
-          <section>
-            <h3>Sort By:</h3>
-            <select onClick={addFilterSort}>
+        <DropMenu title="Filter" >
+          <section className='parent-filter'>
+            <Heading as='h3'size='sm' color='teal.700' >Sort By:</Heading>
+            <select onClick={addFilterSort} className="sortby-selection">
               <option value="title">Title</option>
               <option value="created_at">Article Date</option>
               <option value="votes">Votes</option>
               <option value="author">Author</option>
               <option value="article_id">Article Number</option>
             </select>
-            <h3>Order</h3>
-            <select onClick={filterOrder}>
+            <Heading as='h3'size='sm' color='teal.700'>Order:</Heading>
+            <select onClick={filterOrder} className="sortby-selection">
               <option>ASC</option>
               <option>DESC</option>
             </select>
-            <button onClick={filterRequest}>Filter</button>
+            <button onClick={filterRequest} className="filter-button">Filter</button>
           </section>
         </DropMenu>
 

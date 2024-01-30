@@ -40,7 +40,7 @@ else {
             return <TopicsCard topic = {topic} key={topic.slug}/>
         })}
     </>
-    <Heading  as='h3' size='md' color='teal.700'>Think we're missing one? Add it here</Heading >
+    <Heading  as='h3' size='md' color='teal.700' textDecoration='underline' marginBottom='10px'>Think we're missing one? Add it here</Heading >
     <AddTopic/>
     </section>
     )
