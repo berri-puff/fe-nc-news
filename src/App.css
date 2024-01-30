@@ -188,6 +188,34 @@ padding: 0;
     font-size: large;
 }
 
+.parent-filter {
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+    margin-top: 5px;
+    margin-left: 30%;
+    margin-right: 30%
+}
+
+.sortby-selection {
+    border: 1px solid #FBD38D;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 6px;
+}
+
+.filter-button {
+    margin-left: 5px;
+    background-color: #FFFAF0;
+    color: #C05621;
+    border: 1px solid;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-weight: bold;
+    border-radius: 5px; 
+}
+
+
 
 
 
