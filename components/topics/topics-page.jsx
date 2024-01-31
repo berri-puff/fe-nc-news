@@ -35,11 +35,11 @@ else {
      return (
         <section className="topic-container">
     <Heading as='h2' size='lg' color='teal.700'>What's on your mind today? </Heading>
-    <>
+    <section className="single-container">
         {topics.map((topic) =>{
             return <TopicsCard topic = {topic} key={topic.slug}/>
         })}
-    </>
+    </section>
     <Heading  as='h3' size='md' color='teal.700' textDecoration='underline' marginBottom='10px'>Think we're missing one? Add it here</Heading >
     <AddTopic/>
     </section>

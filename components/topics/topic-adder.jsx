@@ -1,7 +1,7 @@
 
 const AddTopic = ()=>{
     return (
-        <form>
+        <form >
             <label htmlFor="topicSlug">
                Topic Slug: <input type='text'
                placeholder="keyboards"
