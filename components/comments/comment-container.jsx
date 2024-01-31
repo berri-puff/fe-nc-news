@@ -38,6 +38,7 @@ const Comments = () => {
   else {
       return (
         <>
+        <Heading as='h2' size='md' textDecoration={"overline"} marginTop='10px' color='orange.600' mb='10px'>Conversations:</Heading>
       <NewComment setComments={setComments}/>
     <section className="comment-container">
       {comments.map((comment) => {

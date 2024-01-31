@@ -8,7 +8,7 @@ const Navigation = () => {
   const { user } = useContext(UserContext);
   return (
     <nav className="Nav-bar">
-      <Tabs variant="soft-rounded" align="center" colorScheme="purple" size='md' isFitted color='teal.600'>
+      <Tabs variant="soft-rounded" align="center" colorScheme="purple" size='sm' isFitted color='teal.600'>
         <TabList>
           <Tab style={{fontSize:'20px'}}>
             <Link to="/" className="nav-buttons">
@@ -21,13 +21,13 @@ const Navigation = () => {
               Topics
             </Link>
           </Tab>
-          <StarIcon />
+          <StarIcon/>
           <Tab style={{fontSize:'20px'}}>
             <Link to="/articles" className="nav-buttons">
               Articles
             </Link>
           </Tab>
-          <StarIcon />
+          <StarIcon/>
           <Tab style={{fontSize:'20px'}}>
             {user.length === 0 ? (
               <Link to="/users" className="nav-buttons">
